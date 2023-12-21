@@ -7,4 +7,8 @@ const urlSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
 
+urlSchema.methods.remove = async function () {
+  return this.deleteOne();
+};
+
 module.exports = mongoose.model("Url", urlSchema);

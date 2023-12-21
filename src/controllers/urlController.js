@@ -78,6 +78,8 @@ async function deleteUrl(req, res) {
       return res.status(404).json({ message: "URL not found" });
     }
 
+    console.log("Found URL:", url);
+
     await url.remove();
     res.json({ message: "URL deleted successfully" });
   } catch (error) {
